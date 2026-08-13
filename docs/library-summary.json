@@ -1,0 +1,165 @@
+{
+  "project": "Aesthetic Reference Library",
+  "publicDemo": true,
+  "totalEntries": 56,
+  "categories": {
+    "产品应用": 24,
+    "电商消费": 3,
+    "个人网站": 7,
+    "媒体娱乐": 1,
+    "商业网站": 12,
+    "投资金融": 6,
+    "组织公益": 2,
+    "PPT模板": 1
+  },
+  "samples": [
+    {
+      "id": "augen",
+      "name": "Augen 官网",
+      "type": "website",
+      "category": "产品应用",
+      "subcategory": "可穿戴硬件",
+      "sourceUrl": "https://augen.pro/",
+      "styleTags": [
+        "高键白色",
+        "未来人体摄影",
+        "胶囊导航",
+        "微型蓝色描边"
+      ],
+      "suitableFor": [
+        "AI与SaaS",
+        "可穿戴硬件",
+        "产品应用"
+      ],
+      "preview": "assets/previews/augen.png"
+    },
+    {
+      "id": "apple",
+      "name": "Apple 官网",
+      "type": "website",
+      "category": "电商消费",
+      "subcategory": "消费科技",
+      "sourceUrl": "https://www.apple.com/",
+      "styleTags": [
+        "产品主导",
+        "电影级媒体",
+        "极简导航",
+        "黑白画布"
+      ],
+      "suitableFor": [
+        "电商与消费品牌",
+        "消费科技",
+        "电商消费"
+      ],
+      "preview": "assets/previews/apple.png"
+    },
+    {
+      "id": "anatoly-design",
+      "name": "Anatoly Ivanov 作品集",
+      "type": "website",
+      "category": "个人网站",
+      "subcategory": "交互设计师作品集",
+      "sourceUrl": "https://anatoly.design/",
+      "styleTags": [
+        "显示器式项目展台",
+        "灰色工业画布",
+        "超大页脚字",
+        "极简导航"
+      ],
+      "suitableFor": [
+        "作品集",
+        "交互设计师",
+        "个人网站",
+        "交互设计师作品集"
+      ],
+      "preview": "assets/previews/anatoly-design.png"
+    },
+    {
+      "id": "defiant-vc",
+      "name": "Defiant VC 官网",
+      "type": "website",
+      "category": "投资金融",
+      "subcategory": "风险投资",
+      "sourceUrl": "https://defiant.vc/",
+      "styleTags": [
+        "技术型基金",
+        "加载器与字母动画",
+        "产品化 VC",
+        "编号轮播",
+        "编辑文章流"
+      ],
+      "suitableFor": [
+        "风险投资",
+        "基金品牌",
+        "数据产品",
+        "投资金融"
+      ],
+      "preview": "assets/previews/defiant-vc.png"
+    },
+    {
+      "id": "robot-com",
+      "name": "Robot.com 官网",
+      "type": "website",
+      "category": "商业网站",
+      "subcategory": "机器人硬件",
+      "sourceUrl": "https://www.robot.com/",
+      "styleTags": [
+        "超近景机器人 Hero",
+        "黑白黄高对比",
+        "巨型圆角面板",
+        "点阵信息图",
+        "产品系列"
+      ],
+      "suitableFor": [
+        "机器人",
+        "AI硬件",
+        "工业科技",
+        "商业网站",
+        "机器人硬件"
+      ],
+      "preview": "assets/previews/robot-com.png"
+    },
+    {
+      "id": "belen-jones",
+      "name": "Belen Jones 作品集",
+      "type": "website",
+      "category": "个人网站",
+      "subcategory": "实验性作品集",
+      "sourceUrl": "https://www.belenjones.com/",
+      "styleTags": [
+        "超大轮廓字",
+        "不规则黑色图形",
+        "薰衣草底色",
+        "单屏作品索引"
+      ],
+      "suitableFor": [
+        "作品集",
+        "实验性设计",
+        "个人网站",
+        "实验性作品集"
+      ],
+      "preview": "assets/previews/belen-jones.png"
+    },
+    {
+      "id": "digital-trust-alliance",
+      "name": "Data & Trusted AI Alliance 官网",
+      "type": "website",
+      "category": "组织公益",
+      "subcategory": "科技联盟",
+      "sourceUrl": "https://www.dtaalliance.org/",
+      "styleTags": [
+        "深绿机构品牌",
+        "动态文字揭幕",
+        "成员 Logo 墙",
+        "可信 AI"
+      ],
+      "suitableFor": [
+        "组织与公益",
+        "科技联盟",
+        "组织公益"
+      ],
+      "preview": "assets/previews/digital-trust-alliance.png"
+    }
+  ],
+  "privacyNote": "This public demo intentionally excludes local filesystem paths, private automation settings, and full-size asset packs."
+}

@@ -1,0 +1,27 @@
+# Task-time scratch files
+*.log
+*.err
+*.tmp
+*.temp
+*.cache
+
+# Python and Node transient files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+npm-cache/
+
+# Browser and capture staging
+captures-*/
+capture-temp/
+playwright-report/
+test-results/
+
+# Full local library build. Keep it on disk, but do not commit the 7GB asset set.
+output/*
+!output/.gitkeep
+
+# Local agent state
+.codex/
+.agents/
