@@ -4,7 +4,7 @@
 
 这个项目的初衷不是做一个“好看网站收藏夹”，而是解决 AI 做设计时最常见的断层：AI 可以写代码、可以排版、可以生成页面，但它经常不知道什么是真正成熟的网页审美，也不知道不同字体、布局、背景、动效为什么能搭在一起。结果就是生成出来的东西很容易变成模板感、卡片堆、渐变堆，或者看起来每次都像不同产品。
 
-所以这个库想做的是：把真实优秀网页和演示稿拆成 AI 能理解、能检索、能复用的设计参考系统。它把“审美”从一句模糊提示，变成结构化的案例、标签、截图、来源、适用场景和兼容性规则。
+所以这个库想做的是：把真实优秀网页和演示稿拆成 AI 能理解、能检索、能复用的设计参考系统。它把“审美”从一句模糊提示，变成结构化的案例、标签、预览、来源、适用场景和兼容性规则。
 
 ## Why I Built It
 
@@ -47,8 +47,8 @@ AI 生成界面时常见的问题：
 - 8 类设计场景：产品应用、商业网站、个人网站、电商消费、投资金融、组织公益、媒体娱乐、PPT 模板
 - 每个条目的来源链接、分类、风格标签、适用场景和预览图
 - 面向 AI 代理的素材库构建脚本
-- 本地完整库审计脚本
-- GitHub Pages 公开展示版本
+- 元数据完整性检查脚本
+- 可公开访问的展示页面
 
 ## What It Can Be Used For
 
@@ -69,35 +69,31 @@ AI 生成界面时常见的问题：
 
 核心代码都在仓库里，可以直接点开看：
 
-- [scripts/prepare_github_demo.mjs](scripts/prepare_github_demo.mjs)：从完整本地库生成公开 Demo
-- [scripts/build_public_library_platform_20260713.mjs](scripts/build_public_library_platform_20260713.mjs)：生成完整素材库平台
+- [scripts/prepare_github_demo.mjs](scripts/prepare_github_demo.mjs)：从结构化元数据生成公开 Demo
+- [scripts/build_public_library_platform_20260713.mjs](scripts/build_public_library_platform_20260713.mjs)：生成素材库展示平台
 - [scripts/audit_library.mjs](scripts/audit_library.mjs)：检查素材包基础完整性
-- [scripts/audit_full_reproduction_library_20260713.mjs](scripts/audit_full_reproduction_library_20260713.mjs)：检查完整复现资料
-- [scripts/reconcile_local_asset_manifests_20260716.mjs](scripts/reconcile_local_asset_manifests_20260716.mjs)：核对本地素材清单
-- [scripts/cleanup_after_task.ps1](scripts/cleanup_after_task.ps1)：任务结束后清理临时产物
 
 ## How It Works
 
-1. 本地完整库保存大素材、截图、录屏、分析文件和素材包。
-2. 完整库入口维护 `library-index.json`，记录每个设计案例的元数据。
-3. `prepare_github_demo.mjs` 读取完整库，复制少量预览图，生成公开版 `docs/index.html` 和 `docs/library-summary.json`。
-4. GitHub 仓库展示轻量 Demo 和可读代码，完整素材包不进入公开仓库。
+1. 设计案例先被整理成统一的 `library-index.json` 元数据。
+2. 每个案例记录分类、风格标签、适用场景、来源链接和预览图。
+3. `prepare_github_demo.mjs` 读取元数据，生成 `docs/index.html` 和 `docs/library-summary.json`。
+4. 展示页呈现项目初衷、问题、解决方案、样例预览和代码入口。
 5. 后续 AI 代理可以读取这些结构化数据，按任务类型选择参考和约束。
 
 ## Repository Layout
 
 ```text
 docs/
-  index.html                # GitHub Pages 展示页
+  index.html                # 项目展示页
   library-summary.json      # 公开摘要数据
   assets/previews/          # 轻量预览图
 scripts/
   prepare_github_demo.mjs   # 公开 Demo 生成脚本
-  build_public_*.mjs        # 完整平台构建脚本
-  audit_*.mjs               # 本地素材库审计脚本
-  cleanup_after_task.ps1    # 临时文件清理脚本
+  build_public_*.mjs        # 展示平台构建脚本
+  audit_library.mjs         # 素材元数据完整性检查
 output/
-  .gitkeep                  # 完整本地素材库的占位目录
+  .gitkeep                  # 数据目录占位
 ```
 
 ## Hackathon Pitch
@@ -106,6 +102,6 @@ output/
 
 如果把普通提示词看成一句临时要求，这个项目更像一个可持续扩展的审美资料层：它让 AI 不只是会写页面，而是能在生成前先理解“应该参考什么、为什么适合、哪些元素不能乱混”。
 
-## Public Repository Note
+## Data Scope
 
-公开仓库只包含 Demo、摘要数据和代码。完整素材包、视频、原始采集文件和本地自动化配置不提交，避免仓库过大，也避免公开无关的本地环境信息。
+这个公开版本展示项目结构、样例预览、摘要数据和核心脚本。大型媒体素材和原始采集资料不包含在仓库中，仓库重点放在项目思路、数据结构和可读代码上。

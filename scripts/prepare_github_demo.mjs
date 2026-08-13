@@ -309,7 +309,7 @@ const html = `<!doctype html>
     </section>
 
     <footer>
-      Public demo generated from structured metadata. Full local asset packs are intentionally excluded from the repository.
+      Public demo generated from structured metadata and readable source code.
     </footer>
   </main>
 </body>

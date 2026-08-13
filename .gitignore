@@ -18,10 +18,6 @@ capture-temp/
 playwright-report/
 test-results/
 
-# Full local library build. Keep it on disk, but do not commit the 7GB asset set.
+# Generated reference-library data.
 output/*
 !output/.gitkeep
-
-# Local agent state
-.codex/
-.agents/
