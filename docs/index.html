@@ -107,6 +107,23 @@
       padding-left: 20px;
       line-height: 1.7;
     }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .step {
+      background: #fffdf8;
+      border: 1px solid #ded6c9;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #155e75;
+    }
     a {
       color: #155e75;
       font-weight: 700;
@@ -128,8 +145,14 @@
         <span>Readable code included</span>
       </div>
       <h1>Aesthetic Reference Library</h1>
-      <p class="lede">一个给 AI 设计代理使用的网页/PPT 审美参考库。它把优秀网页和演示稿整理成分类、标签、预览和兼容性规则，让 AI 生成网页、产品页或演示稿时有稳定参考，而不是随机堆卡片、渐变和装饰。</p>
+      <p class="lede">一个给 AI 设计代理使用的网页/PPT 审美参考库。它不是截图收藏夹，而是把真实优秀网页和演示稿整理成分类、标签、预览、适用场景和兼容性规则，让 AI 生成网页、产品页、作品集或演示稿时有稳定参考。</p>
     </header>
+
+    <section>
+      <h2>为什么做这个项目</h2>
+      <p>AI 已经很会写页面代码，但它经常不知道什么是真正成熟的网页审美，也不知道字体、布局、背景和动效为什么能搭在一起。只说“高级一点”“科技感一点”太模糊，模型很容易自由发挥，最后生成结果不可控。</p>
+      <p>这个库想把审美从一句模糊提示变成可读取、可检索、可约束的数据层。AI 代理可以先看真实案例，再按任务类型选择参考，而不是凭空猜风格。</p>
+    </section>
 
     <section>
       <h2>它解决什么问题</h2>
@@ -140,6 +163,7 @@
             <li>AI 生成设计风格不稳定</li>
             <li>截图收藏缺少结构，代理难以复用</li>
             <li>字体、布局、背景和动效容易混搭失控</li>
+            <li>生成代码能跑，但视觉判断没有稳定依据</li>
           </ul>
         </div>
         <div class="panel">
@@ -148,8 +172,19 @@
             <li>把真实优秀案例整理成机器可读的数据</li>
             <li>用分类和风格标签帮助选择参考方向</li>
             <li>用兼容性规则约束设计元素组合</li>
+            <li>把设计参考变成可持续扩展的资料层</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>它怎么工作</h2>
+      <div class="flow">
+        <div class="step"><strong>1. 收集真实案例</strong>保留来源、预览和设计场景。</div>
+        <div class="step"><strong>2. 结构化审美信息</strong>整理分类、标签、适用场景和说明。</div>
+        <div class="step"><strong>3. 加入兼容规则</strong>约束字体、布局、背景和动效组合。</div>
+        <div class="step"><strong>4. 生成公开 Demo</strong>输出 GitHub Pages 页面和可读代码入口。</div>
       </div>
     </section>
 

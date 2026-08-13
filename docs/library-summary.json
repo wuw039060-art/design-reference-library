@@ -161,10 +161,11 @@
       "preview": "assets/previews/digital-trust-alliance.png"
     }
   ],
-  "purpose": "A structured design reference library for AI agents that need stable visual direction when generating websites and slide decks.",
+  "purpose": "A structured design reference memory and aesthetic constraint layer for AI agents that generate websites, product pages, portfolios, and slide decks.",
   "solves": [
     "Unstable AI-generated visual styles",
     "Unstructured screenshot collections that are hard for agents to reuse",
     "Random mixing of typography, layout, background, and motion patterns"
-  ]
+  ],
+  "intendedUse": "Help AI agents choose real design references by use case, style tags, and compatibility rules before generating UI or presentation code."
 }
