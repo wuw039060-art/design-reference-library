@@ -38,13 +38,15 @@
       line-height: 1.6;
     }
     .stats,
-    .categories {
+    .categories,
+    .links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
     .stats span,
-    .categories span {
+    .categories span,
+    .links a {
       border: 1px solid #d8d0c2;
       background: #fffaf0;
       padding: 8px 10px;
@@ -90,6 +92,21 @@
     p {
       line-height: 1.55;
     }
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 14px;
+    }
+    .panel {
+      border-left: 3px solid #155e75;
+      padding-left: 16px;
+    }
+    .panel ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      line-height: 1.7;
+    }
     a {
       color: #155e75;
       font-weight: 700;
@@ -108,11 +125,43 @@
       <div class="stats">
         <span>56 entries</span>
         <span>8 categories</span>
-        <span>GitHub-safe public demo</span>
+        <span>Readable code included</span>
       </div>
       <h1>Aesthetic Reference Library</h1>
-      <p class="lede">一个面向 AI 代理和产品设计任务的网页/PPT 审美参考库。公开版展示数据结构、分类体系和少量预览；完整素材包保留在本地或私有分发渠道，避免把大文件和个人环境信息提交到 GitHub。</p>
+      <p class="lede">一个给 AI 设计代理使用的网页/PPT 审美参考库。它把优秀网页和演示稿整理成分类、标签、预览和兼容性规则，让 AI 生成网页、产品页或演示稿时有稳定参考，而不是随机堆卡片、渐变和装饰。</p>
     </header>
+
+    <section>
+      <h2>它解决什么问题</h2>
+      <div class="columns">
+        <div class="panel">
+          <strong>问题</strong>
+          <ul>
+            <li>AI 生成设计风格不稳定</li>
+            <li>截图收藏缺少结构，代理难以复用</li>
+            <li>字体、布局、背景和动效容易混搭失控</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <strong>方案</strong>
+          <ul>
+            <li>把真实优秀案例整理成机器可读的数据</li>
+            <li>用分类和风格标签帮助选择参考方向</li>
+            <li>用兼容性规则约束设计元素组合</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>代码入口</h2>
+      <p>核心代码可以直接在 GitHub 仓库里查看。</p>
+      <div class="links">
+        <a href="https://github.com/wuw039060-art/design-reference-library/blob/main/scripts/prepare_github_demo.mjs">prepare_github_demo.mjs</a>
+        <a href="https://github.com/wuw039060-art/design-reference-library/blob/main/scripts/build_public_library_platform_20260713.mjs">build_public_library_platform_20260713.mjs</a>
+        <a href="https://github.com/wuw039060-art/design-reference-library/blob/main/scripts/audit_library.mjs">audit_library.mjs</a>
+      </div>
+    </section>
 
     <section>
       <h2>分类概览</h2>
@@ -198,7 +247,7 @@
     </section>
 
     <footer>
-      Public demo generated from sanitized metadata. Full local asset packs are intentionally excluded from the repository.
+      Public demo generated from structured metadata. Full local asset packs are intentionally excluded from the repository.
     </footer>
   </main>
 </body>

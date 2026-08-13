@@ -161,5 +161,10 @@
       "preview": "assets/previews/digital-trust-alliance.png"
     }
   ],
-  "privacyNote": "This public demo intentionally excludes local filesystem paths, private automation settings, and full-size asset packs."
+  "purpose": "A structured design reference library for AI agents that need stable visual direction when generating websites and slide decks.",
+  "solves": [
+    "Unstable AI-generated visual styles",
+    "Unstructured screenshot collections that are hard for agents to reuse",
+    "Random mixing of typography, layout, background, and motion patterns"
+  ]
 }

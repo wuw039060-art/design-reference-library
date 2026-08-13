@@ -1,97 +1,71 @@
 # Aesthetic Reference Library
 
-面向黑客松展示的网页与 PPT 审美参考库。它把优秀网页、产品页、作品集、投资金融页面和演示稿拆成可复用的设计参考包，并给 AI 代理提供清晰的分类、风格标签、适用场景和兼容性规则。
+一个给 AI 设计代理使用的网页/PPT 审美参考库。
 
-> 公开仓库只包含 GitHub 友好的展示版与元数据摘要。完整素材包、高清视频、原始采集证据和本地自动化配置不会提交。
+它不是普通截图收藏夹，而是把优秀网页和演示稿整理成结构化参考：每个案例都有分类、风格标签、适用场景、来源链接、预览图和兼容性规则。目标是让 AI 在生成网页、PPT、品牌页或产品页时，不再只靠随机审美和泛化提示，而是能读取明确的设计参考和约束。
 
-## Demo
+## It Solves
 
-- GitHub Pages 入口：`docs/index.html`
-- 公开摘要数据：`docs/library-summary.json`
-- 本地完整入口：`output/审美素材库/index.html`（不提交到 GitHub）
+AI 生成界面时常见的问题：
 
-## What It Shows
+- 风格不稳定，同一个需求每次生成都像不同产品
+- 只会堆卡片、渐变和装饰元素，缺少真实网页的层次和节奏
+- 参考图只能“看起来像”，但没有可复用的分类、标签和组合规则
+- 字体、布局、背景、动效随意混搭，最后变成不协调的拼贴
 
-- 56 个精选网页/PPT 参考条目
-- 多类别筛选：商业网站、产品应用、个人网站、电商消费、投资金融、组织公益、工业制造、PPT 模板等
-- 每个条目包含用途、风格标签、适合场景、来源链接和预览图
-- 兼容性规则用于约束字体、布局、背景和动效组合，减少“拼贴感”和风格冲突
-- 面向 AI 代理的复现说明，帮助从参考库生成更稳定的网页/PPT 设计
+这个项目把高质量网页/PPT 拆成机器可读的参考库，让后续生成任务可以按“用途 + 风格 + 约束”来复用设计语言。
+
+## What It Does
+
+- 收集并整理 56 个网页/PPT 设计参考
+- 按产品应用、商业网站、个人网站、电商消费、投资金融、组织公益、PPT 模板等类别组织
+- 为每个案例提供风格标签、适用场景、来源链接和预览图
+- 用兼容性规则约束字体、布局、背景和动效组合
+- 生成一个轻量公开 Demo，适合 GitHub Pages 展示
+
+## Public Demo
+
+- 展示页：[docs/index.html](docs/index.html)
+- 公开摘要：[docs/library-summary.json](docs/library-summary.json)
+- 预览图：[docs/assets/previews](docs/assets/previews)
+
+## Code You Can Read
+
+核心代码都在仓库里，可以直接点开看：
+
+- [scripts/prepare_github_demo.mjs](scripts/prepare_github_demo.mjs)：从完整本地库生成公开 Demo
+- [scripts/build_public_library_platform_20260713.mjs](scripts/build_public_library_platform_20260713.mjs)：生成完整素材库平台
+- [scripts/audit_library.mjs](scripts/audit_library.mjs)：检查素材包基础完整性
+- [scripts/reconcile_local_asset_manifests_20260716.mjs](scripts/reconcile_local_asset_manifests_20260716.mjs)：核对本地素材清单
+- [scripts/cleanup_after_task.ps1](scripts/cleanup_after_task.ps1)：任务结束后清理临时产物
+
+## How It Works
+
+1. 本地完整库保存大素材、截图、录屏和分析文件。
+2. `prepare_github_demo.mjs` 读取完整库的 `library-index.json`。
+3. 脚本复制少量预览图并生成 `docs/index.html` 和 `docs/library-summary.json`。
+4. GitHub 公开仓库只展示轻量 Demo 和可读代码，不提交大型素材包。
 
 ## Repository Layout
 
 ```text
 docs/
   index.html                # GitHub Pages 展示页
-  library-summary.json      # 已脱敏的公开摘要
-  assets/previews/          # 少量轻量预览图
+  library-summary.json      # 公开摘要数据
+  assets/previews/          # 轻量预览图
 scripts/
-  prepare_github_demo.mjs   # 从本地完整库生成公开展示版
-  cleanup_after_task.ps1    # 任务结束清理脚本
-  audit_*.mjs               # 本地完整库审计脚本
-  build_*.mjs               # 本地完整库构建脚本
+  prepare_github_demo.mjs   # 公开 Demo 生成脚本
+  build_public_*.mjs        # 完整平台构建脚本
+  audit_*.mjs               # 本地素材库审计脚本
+  cleanup_after_task.ps1    # 临时文件清理脚本
 output/
-  .gitkeep                  # 完整素材库目录占位；大文件被 .gitignore 排除
+  .gitkeep                  # 完整本地素材库的占位目录
 ```
-
-## Privacy And Size Policy
-
-这个仓库适合公开提交，因为它刻意排除了：
-
-- 本机用户名、盘符路径、Codex 会话路径和通知脚本路径
-- 完整素材包 zip、视频、原始截图采集目录和浏览器缓存
-- 任何密钥、令牌、通知地址或个人自动化配置
-
-完整本地库约 7GB，其中部分单文件超过 GitHub 100MB 限制，所以不要提交 `output/审美素材库/`。
-
-## Generate The Public Demo
-
-```powershell
-node .\scripts\prepare_github_demo.mjs
-.\scripts\cleanup_after_task.ps1 -DryRun
-```
-
-`prepare_github_demo.mjs` 会从本地完整库读取 `library-index.json`，复制少量预览图到 `docs/assets/previews/`，并生成公开版 `docs/index.html` 和 `docs/library-summary.json`。
-
-## How To Submit To GitHub
-
-完整步骤也整理在 `SUBMISSION_CHECKLIST.md`。
-
-1. 先确认不会提交大文件：
-
-```powershell
-git status --short
-git check-ignore -v output/审美素材库/index.html
-```
-
-2. 检查 100MB 以上文件是否仍会被加入仓库：
-
-```powershell
-git ls-files -o --exclude-standard | ForEach-Object { Get-Item -LiteralPath $_ } | Where-Object Length -gt 100MB
-```
-
-这条命令没有输出才继续。
-
-3. 提交 GitHub 展示版：
-
-```powershell
-git add README.md AGENTS.md .gitignore docs scripts output/.gitkeep
-git commit -m "Prepare GitHub demo for aesthetic reference library"
-git branch -M main
-git remote add origin https://github.com/<your-user>/<your-repo>.git
-git push -u origin main
-```
-
-如果已经有远程仓库，把 `remote add` 换成：
-
-```powershell
-git remote set-url origin https://github.com/<your-user>/<your-repo>.git
-```
-
-4. GitHub Pages 展示：
-
-在 GitHub 仓库页面进入 `Settings` -> `Pages`，选择 `Deploy from a branch`，分支选 `main`，目录选 `/docs`。
 
 ## Hackathon Pitch
 
-这个项目展示的是一个“可被 AI 代理读取和执行的审美资料库”：不是简单收藏截图，而是把真实网页/PPT 的视觉证据、分类标签、适用场景和组合约束整理成结构化素材。它可以帮助后续网页生成、PPT 生成和品牌页面设计任务更稳定地复用高质量参考，降低随机拼贴和风格跑偏。
+这个项目展示的是一个“可被 AI 代理读取的设计参考系统”。它把真实优秀网页/PPT 的视觉特征整理成结构化数据和规则，让 AI 生成设计时有明确参考、分类和约束，从而减少随机拼贴，提高网页和演示稿生成的一致性与可控性。
+
+## Public Repository Note
+
+公开仓库只包含 Demo、摘要数据和代码。完整素材包、视频、原始采集文件和本地自动化配置不提交，避免仓库过大，也避免公开无关的本地环境信息。
